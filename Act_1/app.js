@@ -1,11 +1,12 @@
 const yargs = require('yargs') 
 const chalk = require('chalk')
+const notes = require('./notes.js')
  
 yargs.version('1.1.0') 
  
 yargs.command({ 
     command: 'add', 
-    describe: 'Add a new note', 
+    describe: 'Adding a new note', 
     builder: { 
     title: { 
     describe: 'Note title', 
@@ -26,21 +27,17 @@ yargs.command({
 
 yargs.command({ 
     command: 'remove', 
-    describe: 'Remove a new note', 
+    describe: 'Removing a note', 
     handler: function () { 
         console.log('Removing a new note!') 
     } 
 }) 
 
-const book = { 
-    title: 'Ego is the Enemy', 
-    author: 'Ryan Holiday' 
-    } 
-    // Covert JavaScript object into JSON string 
-    const bookJSON = JSON.stringify(book) 
-    // Covert JSON string into object 
-    const bookObject = JSON.parse(bookJSON) 
-    console.log(bookObject.title) // Print: Ego is the Enemy 
+yargs.command({
+    command: 'read',
+    describe: 'Reading a note',
+    
+})
 
 yargs.parse()
 
